@@ -55,7 +55,7 @@ class iphotoHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         if album.name.upper().find(searchvalue) >= 0:
           html += '<p>' + album.name + '</p>'
           for image in album.images:
-            html += '<a href="\/iPhotoLibrary' + image.getimagepath()[34:] + '" />'
+            html += '<a href="/iPhotoLibrary' + image.getimagepath()[34:] + '" />'
             html += '<img height=200 src="/iPhotoLibrary' + image._getthumbpath()[34:] + '" />'
             html += '</a>'
     elif post_data_dict["face"] > "":
@@ -67,7 +67,7 @@ class iphotoHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
           for image in album.images:
             for face_index in image.face_indexes:
               if (image.face_indexes[face_index] == album.name):
-                html += '<a href="\/iPhotoLibrary' + image.getimagepath()[34:] + '" />'
+                html += '<a href="/iPhotoLibrary' + image.getimagepath()[34:] + '" />'
                 html += '<img height=200 src="/iPhotoLibrary' + image._getthumbpath()[34:-4] + '_face' + str(face_index) + '.jpg" />'
                 html += '</a>'
 
